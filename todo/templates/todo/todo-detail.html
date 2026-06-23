@@ -1,0 +1,9 @@
+{% extends "todo/base.html"%}
+
+{% block content %}
+    <h3>{{ todo.title }}</h3>
+    <p>{{ todo.context }}</p>
+    <span>{{ todo.created_at }}</span>
+    <a href="{% url 'todo-complete' todo.id %}">انجام دادی؟</a>
+    <a href="{% url 'todo-delete' todo.id %}">حذف کردن</a>
+{% endblock content %}

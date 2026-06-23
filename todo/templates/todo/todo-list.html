@@ -1,0 +1,19 @@
+{% extends "todo/base.html"%}
+
+{% block content %}
+    <h2>کارهای خود را فهرست کنید</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label>عنوان</label>
+        <input type="text" name="title">
+        <label>متن</label>
+        <input type="textarea" name="context">
+        {{ form }}
+        <button type="submit">اضافه کن</button>
+    </form>
+    {% for todo in todos %}
+        <ul>
+            <a href="{% url 'todo-detail' todo.id %}"><li>{{todo.title}}<strong>{{todo.get_status}}</strong></li></a>
+        </ul>
+    {% endfor %}    
+{% endblock content %}

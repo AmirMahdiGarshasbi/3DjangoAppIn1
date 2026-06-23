@@ -1,0 +1,16 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            آیا از حذف کردن
+            <em>"{{ todo.title }}"</em>
+            اطمینان دارید؟
+        </p>
+        <input class="submit" type="submit" value="تائید">
+    </form>
+    <a href="{% url 'todo-detail' todo.id %}">
+        <button>منصرف شدم</button>
+    </a>
+{% endblock content %}
